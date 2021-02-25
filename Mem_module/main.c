@@ -12,7 +12,7 @@ struct member
 	char ph_num[40];
 };
 
-//void join(struct member *info);
+//void join(struct member *info); ì§€ê¸ˆì€ ì£¼ì„ì²˜ë¦¬, ì¶”í›„ ì½”ë“œ ì¶”ê°€ ë° ìˆ˜ì •ì‹œì— ê°™ì´ ì—´ì–´ë³¼ ì˜ˆì •.
 //void list(struct member *info);
 //void insert(struct member *info);
 
@@ -21,11 +21,11 @@ int main(int argc, char *argv[])
 	while(1){
 		struct member info[100];
 		int i;
-		printf("1. È¸¿ø°¡ÀÔ\n");
-		printf("2. È¸¿ø¸ñ·Ï È®ÀÎ\n");
-		printf("3. È¸¿øÁ¤º¸ ¼öÁ¤\n");
-		printf("4.Á¾·á\n");
-		printf("¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+		printf("1. íšŒì›ê°€ì…\n");
+		printf("2. íšŒì›ëª©ë¡ í™•ì¸\n");
+		printf("3. íšŒì›ì •ë³´ ìˆ˜ì •\n");
+		printf("4.ì¢…ë£Œ\n");
+		printf("ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 		scanf_s("%d", &i);
 		printf("\n");
 		
