@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+// ?
 
 int main()
 {
@@ -24,12 +25,14 @@ int main()
     char year1[20] = "";
     char month1[20] = "";
     char day1[20] = "";
-
+    char sel_y[20] = "";
+    char sel_m[20] = "";
+    char sel_d[20] = "";
 
     while (1)
     {
         printf("일정관리 프로그램 2008년에서 2012년까지\n");
-        printf("[1]날짜설정 [2]내용쓰기 [3]확인하기\n[4]저장하기 [5]불러오기 [0]종료하기\n");
+        printf("[1]날짜설정 [2]내용쓰기 [3]확인하기\n[4]저장하기 [5]불러오기 [0]종료하기\n[6]원하는 일정만 확인 [7]선택 일정 삭제\n[8]전체삭제 \n\n");
         gets(temp);
         sscanf(temp, "%d", &value);
         if (value == 0)//[0]종료하기
@@ -135,8 +138,44 @@ int main()
             
             break;
         case 5://[5]불러오기
-            
             mysql_r("select * from todo");
+            break;
+        case 6: //[6]원하는 일정만 확인
+            printf("보고싶은 일정 날짜를 입력하세요. 예) 2012 3 1\n\n");
+            scanf("%s %s %s", sel_y, sel_m, sel_d);
+            getchar();
+
+            strcpy(my_query, "select * from todo where year = ");
+            strcat(my_query, sel_y);
+            strcat(my_query, " and month = ");
+            strcat(my_query, sel_m);
+            strcat(my_query, " and day = ");
+            strcat(my_query, sel_d);
+
+
+            printf("%s\n", my_query);
+            mysql_r(my_query);
+
+            break;
+        case 7: //[7]선택 일정 삭제
+            printf("삭제하고싶은 일정 날짜를 입력하세요. 예) 2012 3 1\n\n");
+            scanf("%s %s %s", sel_y, sel_m, sel_d);
+            getchar();
+
+            strcpy(my_query, "delete from todo where year = ");
+            strcat(my_query, sel_y);
+            strcat(my_query, " and month = ");
+            strcat(my_query, sel_m);
+            strcat(my_query, " and day = ");
+            strcat(my_query, sel_d);
+
+
+            printf("%s\n", my_query);
+            mysql(my_query);
+            break;
+
+        case 8: //[8]전체 삭제
+            mysql("delete from todo");
             break;
         default:
             printf("잘못된 입력!\n\n");//초기메뉴에서 지정된값 이외의 값 입력시의 에러처리

@@ -31,6 +31,8 @@ void mysql(char query[])
     {
         finish_with_error(conn);
     }
+
+    printf("OK!\n\n");
     mysql_close(conn);
     
 
