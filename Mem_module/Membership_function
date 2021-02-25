@@ -1,0 +1,30 @@
+void join(struct member *info)
+{
+	int i,j,k;
+	for(i=0; i<100; i++)
+	{
+		printf("회원가입을 계속해서 진행하시겠습니까?\n 1.예 2. 아니오\n");
+		scanf("%d", &j);
+		
+		if(j==1){
+			printf("이름을 입력해주세요. : ");
+			scanf("%s", info[i].name]);
+			printf("\n");
+			printf("나이를 입력해주세요. : ");
+			scanf("%s", info[i].age]);
+			printf("\n");
+			printf("성별을 입력해주세요.(여 또는 남) : ");
+			scanf("%s", info[i].sex]);
+			printf("\n");
+			printf("이메일을 입력해주세요. : ");
+			scanf("%s", info[i].mail]);
+			printf("\n");
+			printf("휴대폰 번호를 입력해주세요. : ");
+			scanf("%s", info[i].ph_num]);
+			printf("\n");
+		}
+		
+		if(j==2)
+			break;
+	}
+}
